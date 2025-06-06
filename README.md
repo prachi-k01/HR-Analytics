@@ -70,21 +70,66 @@ SELECT COUNT(EmpID) FROM hr_data;
 Active Employees
 SELECT COUNT(*) FROM hr_data WHERE EmploymentStatus = 'Active';
 
--- Attrition Rate (%)
+Attrition Rate (%)
 SELECT ROUND(SUM(CASE WHEN Termd = 1 THEN 1 ELSE 0 END) / COUNT(*) * 100, 2) AS attrition_rate FROM hr_data;
 
--- Avg Tenure of Terminated Employees
-SELECT ROUND(AVG(DATEDIFF(DateofTermination, DateofHire) / 365.0), 2) FROM hr_data WHERE Termd = 1;
+Avg Employee Satisfaction
+SELECT ROUND(AVG(EmpSatisfaction), 2) AS avg_emp_satisfaction_rating FROM hr_data;
 
--- Avg Employee Satisfaction
-SELECT ROUND(AVG(EmpSatisfaction), 2) FROM hr_data;
+Gender Count
+SELECT Sex, COUNT(*) AS gender_count FROM hr_data GROUP BY Sex;
 
--- Gender Count
-SELECT Sex, COUNT(*) FROM hr_data GROUP BY Sex;
+Gender Distribution Across Departments
+SELECT 
+    Department,
+    Sex AS Gender,
+    COUNT(*) AS Num_Emp,
+FROM hr_data
+GROUP BY Department, Sex
+ORDER BY Department, Sex;
 
--- Avg Salary by Gender
-SELECT Sex, AVG(Salary) FROM hr_data GROUP BY Sex;
+Avg Salary by Gender
+SELECT Sex AS Gender, AVG(Salary) AS avg_salary FROM hr_data GROUP BY Sex;
 
+Age Bucket Distribution
+SELECT
+    COUNT(*) AS emp_count,
+    CASE 
+        WHEN TIMESTAMPDIFF(YEAR, DOB, '2020-01-01') BETWEEN 18 AND 25 THEN '18-25'
+        WHEN TIMESTAMPDIFF(YEAR, DOB, '2020-01-01') BETWEEN 26 AND 35 THEN '26-35'
+        WHEN TIMESTAMPDIFF(YEAR, DOB, '2020-01-01') BETWEEN 36 AND 45 THEN '36-45'
+        WHEN TIMESTAMPDIFF(YEAR, DOB, '2020-01-01') BETWEEN 46 AND 60 THEN '46-60'
+        ELSE '60+'
+    END AS age_bucket
+FROM hr_data
+GROUP BY age_bucket
+ORDER BY age_bucket;
+
+Most Common Termination Reasons
+SELECT 
+    TermReason, 
+    COUNT(*) AS emp_count 
+FROM hr_data 
+WHERE Termd = 1 
+GROUP BY TermReason 
+ORDER BY emp_count DESC;
+
+Attrition by Recruitment Source (Hotspots)
+SELECT 
+    RecruitmentSource,
+    COUNT(*) AS terminated_count
+FROM hr_data 
+WHERE Termd = 1 
+GROUP BY RecruitmentSource 
+ORDER BY terminated_count DESC;
+
+Attrition by Department
+SELECT 
+    Department, 
+    COUNT(CASE WHEN Termd = 1 THEN 1 END) AS terminated
+FROM hr_data
+GROUP BY Department
+ORDER BY Department DESC;
 ```
  
 ### What’s Next ❓
