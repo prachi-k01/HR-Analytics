@@ -79,10 +79,11 @@ SELECT ROUND(SUM(CASE WHEN Termd = 1 THEN 1 ELSE 0 END) / COUNT(*) * 100, 2) AS 
 Avg Employee Satisfaction
 SELECT ROUND(AVG(EmpSatisfaction), 2) AS avg_emp_satisfaction_rating FROM hr_data;
 ```
-
+```sql
 Gender Count
 SELECT Sex, COUNT(*) AS gender_count FROM hr_data GROUP BY Sex;
-
+```
+```sql
 Gender Distribution Across Departments
 SELECT 
     Department,
@@ -91,10 +92,12 @@ SELECT
 FROM hr_data
 GROUP BY Department, Sex
 ORDER BY Department, Sex;
-
+```
+```sql
 Avg Salary by Gender
 SELECT Sex AS Gender, AVG(Salary) AS avg_salary FROM hr_data GROUP BY Sex;
-
+```
+```sql
 Age Bucket Distribution
 SELECT
     COUNT(*) AS emp_count,
@@ -108,7 +111,8 @@ SELECT
 FROM hr_data
 GROUP BY age_bucket
 ORDER BY age_bucket;
-
+```
+```sql
 Most Common Termination Reasons
 SELECT 
     TermReason, 
@@ -117,7 +121,8 @@ FROM hr_data
 WHERE Termd = 1 
 GROUP BY TermReason 
 ORDER BY emp_count DESC;
-
+```
+```sql
 Attrition by Recruitment Source (Hotspots)
 SELECT 
     RecruitmentSource,
@@ -126,7 +131,8 @@ FROM hr_data
 WHERE Termd = 1 
 GROUP BY RecruitmentSource 
 ORDER BY terminated_count DESC;
-
+```
+```sql
 Attrition by Department
 SELECT 
     Department, 
@@ -137,74 +143,20 @@ ORDER BY Department DESC;
 ```
  
 ### What’s Next ❓
-This project was completed using both visual tools (Tableau) and code-driven analysis (Python) to provide a full-stack business intelligence solution.
+This project was completed using both visual tools (PowerBI) and code-driven analysis (Python) to provide a full-stack business intelligence solution.
 Additional deep-dives included:
  - Revenue Forecasting using Linear Regression
  - Time-of-Day Analysis by Pizza Category (heatmap)
   
 ### Dashboard Preview
 
-#### Sales & Growth Monitor
-![Dashboard 1](dashboards/dashboard_main.png)
-
-#### Customer Behavior & Category Insights
-![Dashboard 2](dashboards/dashboard2.png)
-
-### Trend Forecasting (Linear Regression)
-
-This plot shows monthly revenue over the year and a predicted trend using linear regression.
-
-![Trend Forecasting](python-analysis/monthly_forecast.png)
+#### Dashboard Preview
+(dashboard/powerbi_dashboard.png)
 
 
-### Order Frequency by Time of Day vs Pizza Category
 
-![Order Time Heatmap](python-analysis/heatmap_order_by_time.png)
 
 ### Insights & Recommendations
 
-#### Sales Trends Over Time
-  - Sales were highest in July, with over **$72,000** in revenue.
-  - **Spring** and **Summer** were the busiest seasons, with the most orders.
-  - On average, the restaurant got **60** orders per day.
-  - Peak hours were **12–1 PM** and **6–8 PM** — perfect lunch and dinner times.
-  - **Thursdays** and **Fridays** were the busiest days of the week.
-#### Recommendations:
-  - Add more staff and prep more ingredients during peak times.
-  - Run offers on Thursday/Friday lunch and dinner to boost revenue.
-  - Plan seasonal deals in Spring and Summer to take advantage of high demand.
 
-#### Best & Worst Performing Pizzas
-  - The **Classic** **Deluxe** and **Barbecue** **Chicken** pizzas were top favorites in both sales and revenue.
-  - **Brie Carre** and **Greek Pizza** **(XXL)** were the least popular.
-#### Recommendations:
-  - Highlight top-sellers in combo meals and marketing.
-  - Consider removing or reworking poorly performing pizzas to reduce waste and menu clutter.
-
-#### Category & Size Insights
-  - **Classic** and **Supreme** pizzas made up more than **50%** of total revenue.
-  - **Medium** and **Large** sizes were ordered the most.
-  - Very few customers ordered XXL pizzas.
-#### Recommendations:
-  - Stock more ingredients for medium and large pizzas.
-  - Focus new product launches in the Classic and Supreme categories.
-  - Rethink XXL pizzas — maybe turn them into limited-time offers.
-
-#### Sales Forecast (Python Analysis)
-  - A simple forecast shows sales might slightly dip in the next 3 months.
-  - This could be due to off-season periods or customer fatigue.
-#### Recommendations:
-  - Introduce new items or limited-time deals to keep customers interested.
-  - Keep tracking the forecast and update it every quarter for better planning.
-
-#### Pizza Category vs. Time of Day (Python Heatmap)
-  - Classic pizzas were most popular during lunch.
-  - Other categories (like Supreme and Veggie) had steady orders throughout the day.
-  - Late-night orders were low across the board.
-#### Recommendations:
-  - Create lunch combos with Classic pizzas to boost sales even more.
-  - Reduce late-night staffing or offer special “late-night meal deals” to increase traffic.
-
-#### References
-[(https://www.youtube.com/watch?v=bYmcCTsP0Zg)]
 
