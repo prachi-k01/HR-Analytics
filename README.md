@@ -150,8 +150,7 @@ Additional deep-dives included:
   
 ### Dashboard Preview
 
-#### Dashboard Preview
-(dashboard/powerbi_dashboard.png)
+![Dashboard](dashboard/powerbi_dashboard.png)
 
 
 
