@@ -64,10 +64,10 @@ To support HR managers and business leaders in reducing attrition, identifying k
 
 ### Data Analysis using SQL
 ```sql
--- Total Employees
+Total Employees
 SELECT COUNT(EmpID) FROM hr_data;
 
--- Active Employees
+Active Employees
 SELECT COUNT(*) FROM hr_data WHERE EmploymentStatus = 'Active';
 
 -- Attrition Rate (%)
