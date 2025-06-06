@@ -66,15 +66,19 @@ To support HR managers and business leaders in reducing attrition, identifying k
 ```sql
 Total Employees
 SELECT COUNT(EmpID) FROM hr_data;
-
+```
+```sql
 Active Employees
 SELECT COUNT(*) FROM hr_data WHERE EmploymentStatus = 'Active';
-
+```
+```sql
 Attrition Rate (%)
 SELECT ROUND(SUM(CASE WHEN Termd = 1 THEN 1 ELSE 0 END) / COUNT(*) * 100, 2) AS attrition_rate FROM hr_data;
-
+```
+```sql
 Avg Employee Satisfaction
 SELECT ROUND(AVG(EmpSatisfaction), 2) AS avg_emp_satisfaction_rating FROM hr_data;
+```
 
 Gender Count
 SELECT Sex, COUNT(*) AS gender_count FROM hr_data GROUP BY Sex;
