@@ -203,5 +203,22 @@ Below is a visual diagram of the decision tree used to classify employee attriti
 
 ### Key Insights
 
+1. The company's overall attrition rate is 33.44%, which is relatively high.
+2. Production department experiences the highest attrition, with most exits coming from employees hired via Google Search and Indeed.
+3. The most common reasons for leaving include: “Another position”, “More money”, and “Unhappy” — indicating external opportunities and dissatisfaction.
+4. Employees with tenure less than 2.3 years are significantly more likely to leave, suggesting early-stage engagement and retention challenges.
+5. There is a slight gender pay gap (M: $70.63K, F: $67.79K), and it’s also seen within the Production department — worth monitoring for equity.
+6. Recruitment sources like Google Search, Indeed, and LinkedIn are associated with higher turnover.
+7. Satisfaction score of 2 has the highest attrition rate (~44%), while score 5 shows the lowest (~29%).
+8. Performance score of 2 (meets expectations) had the highest attrition (~56%), while top performers (score 4) had the lowest (~21%).
+9. A Decision Tree model achieved 75% prediction accuracy — with key risk factors including low tenure, low engagement, and certain recruitment sources.
+10. The model can be used as a risk-flagging tool to help HR proactively retain employees.
+
+### References
+[(https://www.youtube.com/watch?v=bYmcCTsP0Zg)]
+
+
+
+
 
 
