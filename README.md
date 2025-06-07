@@ -8,7 +8,8 @@ A business analytics case study analyzing employee attrition trends, satisfactio
 - [Data Analysis using SQL](#data-analysis-using-sql)
 - [KPIs](#key-performance-indicators-kpis)
 - [Dashboards](#dashboard-preview)
-- [Insights](#key-insights--recommendations)
+- [Python Analysis](#python-analysis)
+- [Key Insights](#key-insights)
 - [References](#references)
 
 ## Case Background  
@@ -145,17 +146,62 @@ ORDER BY Department DESC;
 ### What’s Next ❓
 This project was completed using both visual tools (PowerBI) and code-driven analysis (Python) to provide a full-stack business intelligence solution.
 Additional deep-dives included:
- - Revenue Forecasting using Linear Regression
- - Time-of-Day Analysis by Pizza Category (heatmap)
+ - Decision Tree Model - To predict attrition
+ - Graphs on relation between Satisfaction, Performance and Attrition
   
 ### Dashboard Preview
 
 ![Dashboard](dashboard/powerbi_dashboard.png)
 
+### Python Analysis
+
+#### 1. To predict which employees are likely to leave the company, I trained a Decision Tree classifier using features like:
+     - Tenure
+     - Engagement score
+     - Satisfaction rating
+     - Performance score
+     - Department and position
+     - Recruitment source
+
+| Metric                  | Score |
+| ----------------------- | ----- |
+| **Accuracy**            | 75%   |
+| **Precision (Leavers)** | 79%   |
+| **Recall (Leavers)**    | 46%   |
+| **F1-Score (Leavers)**  | 58%   |
+
+Interpretation:
+- The model correctly predicted 75% of employees.
+- It was very good at predicting who will stay.
+- It caught about half of the employees who actually left, useful as a risk flag, though not perfect.
+
+Below is a visual diagram of the decision tree used to classify employee attrition. The tree shows that low tenure, low engagement, and certain roles or hiring sources are key indicators of attrition risk.
+![DecisionTree](python/decision_tree_report.png)
+![DecisionTree](python/decision_tree_flowchart.png)
+
+#### 2. Satisfaction vs. Attrition - analyzed how employee satisfaction impacts attrition.
+![attritionVSsatisfaction](python/attrition_vs_satisfaction.png)
+
+| Satisfaction Score | Attrition Rate |
+| ------------------ | -------------- |
+| 1 (Very Low)       | 0.00           |
+| 2 (Low)            | 44.4%          |
+| 3 (Neutral)        | 30.6%          |
+| 4 (High)           | 40.4%          |
+| 5 (Very High)      | 29.6%          |
+
+#### 3. Performance Score vs. Attrition
+![attritionVperformance](python/attrition_vs_performance.png)
+| Performance Score | Description        | Attrition Rate       |
+| ----------------- | ------------------ | -------------------- |
+| 1                 | Low                | 30.8%                |
+| 2                 | Meets Expectations | **55.6%**  (Highest) |
+| 3                 | Exceeds            | 33.7%                |
+| 4                 | Outstanding        | **21.6%**  (Lowest)  |
 
 
 
-### Insights & Recommendations
+### Key Insights
 
 
 
